@@ -269,54 +269,31 @@ export default function AnalysisScreen() {
             Your Recommended Track
           </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-              <span style={{ color: 'var(--cyan)' }}>
-                {currentTrack === 'data' && <BarChart size={32} strokeWidth={1.5} />}
-                {currentTrack === 'ai' && <Bot size={32} strokeWidth={1.5} />}
-                {currentTrack === 'backend' && <Settings size={32} strokeWidth={1.5} />}
-              </span>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '16px' }}>{trackData.label}</div>
-                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{trackData.role}</div>
-              </div>
-              <div style={{
-                marginLeft: 'auto',
-                background: 'rgba(0,210,255,0.1)',
-                border: '1px solid rgba(0,210,255,0.25)',
-                borderRadius: '6px',
-                padding: '3px 8px',
-                fontSize: '12px',
-                fontWeight: 700,
-                color: 'var(--cyan)',
-                fontFamily: 'var(--font-display)',
-                flexShrink: 0,
-                boxShadow: '0 0 10px rgba(0, 210, 255, 0.05)'
-              }}>
-                {trackData.salaryRange}
-              </div>
-            </div>
-            <div style={{
-              marginLeft: 'auto',
-              background: 'rgba(0,210,255,0.1)',
-              border: '1px solid rgba(0,210,255,0.25)',
-              borderRadius: '6px',
-              padding: '3px 8px',
-              fontSize: '12px',
-              fontWeight: 700,
-              color: 'var(--cyan)',
-              fontFamily: 'var(--font-display)',
-              flexShrink: 0,
-              boxShadow: '0 0 10px rgba(0, 210, 255, 0.05)'
-            }}>
-              {trackData.salaryRange}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+            <span style={{ color: 'var(--cyan)' }}>
+              {currentTrack === 'data' && <BarChart size={32} strokeWidth={1.5} />}
+              {currentTrack === 'ai' && <Bot size={32} strokeWidth={1.5} />}
+              {currentTrack === 'backend' && <Settings size={32} strokeWidth={1.5} />}
+            </span>
+            <div>
+              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '16px' }}>{trackData.label}</div>
+              <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{trackData.role}</div>
             </div>
           </div>
 
-          <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '12px', lineHeight: 1.5 }}>
-            Based on your goal and current level, we recommend the{' '}
-            <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{trackData.label}</span>.
-            This prepares you for {trackData.role} roles.
-          </p>
+          <div style={{ 
+            background: 'rgba(0,210,255,0.05)', 
+            border: '1px solid rgba(0,210,255,0.2)', 
+            borderRadius: '8px', 
+            padding: '12px', 
+            marginBottom: '16px'
+          }}>
+            <p style={{ fontSize: '14px', color: 'var(--text-primary)', lineHeight: 1.5, margin: 0 }}>
+              Based on your responses, you are ready for the <span style={{ color: 'var(--cyan)', fontWeight: 700 }}>{trackData.label} Python Track</span>. 
+              This path prepares you for <span style={{ fontWeight: 600 }}>{trackData.role}</span> roles.
+            </p>
+          </div>
+        </div>
 
           {/* Track switcher */}
           <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '8px' }}>Switch track:</div>
