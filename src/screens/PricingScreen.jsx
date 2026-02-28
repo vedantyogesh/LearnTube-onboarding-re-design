@@ -156,7 +156,7 @@ export default function PricingScreen() {
           </div>
 
           <button className="btn-primary" onClick={handleUnlock}>
-            Unlock Python Career Path
+            Start My Python Career Path →
           </button>
         </div>
 
@@ -255,7 +255,7 @@ export default function PricingScreen() {
 
         {/* Date note */}
         <p style={{ textAlign: 'center', fontSize: '12px', color: 'var(--text-muted)', marginBottom: '8px' }}>
-          Pricing valid until 5 March 2025
+          Pricing valid until 5 March 2026
         </p>
         </div>
       </div>
@@ -274,7 +274,7 @@ export default function PricingScreen() {
             <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>one-time</div>
           </div>
           <button className="btn-primary" style={{ width: 'auto', flex: 1, padding: '13px 20px' }} onClick={handleUnlock}>
-            Unlock Python Career Path
+            Start My Python Career Path →
           </button>
         </div>
       </div>

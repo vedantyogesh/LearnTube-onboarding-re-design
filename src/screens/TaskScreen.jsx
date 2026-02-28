@@ -377,27 +377,10 @@ export default function TaskScreen() {
         </div>
       </div>
 
-      {/* Sticky bar */}
+      {/* Sticky CTA bar */}
       <div className="sticky-bar slide-up">
-        <div style={{
-          maxWidth: '560px',
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-        }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px', color: 'var(--text-primary)' }}>
-              ₹299
-            </div>
-            <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>per course</div>
-          </div>
-          <button
-            className="btn-primary"
-            style={{ width: 'auto', flexShrink: 0, padding: '13px 20px' }}
-            disabled={!success}
-            onClick={() => navigate('/pricing')}
-          >
+        <div style={{ maxWidth: '560px', margin: '0 auto' }}>
+          <button className="btn-primary" style={{ padding: '15px 24px' }} onClick={() => navigate('/pricing')}>
             Start My Python Career Path →
           </button>
         </div>

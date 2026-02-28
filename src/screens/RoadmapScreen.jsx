@@ -185,44 +185,36 @@ export default function RoadmapScreen() {
 
       <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
         <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px 24px' }}>
-        {/* Track header */}
-        <div className="glass-panel" style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          marginBottom: '20px',
-          padding: '16px',
+        {/* Outcome-first headline */}
+        <h1 style={{
+          fontFamily: 'var(--font-display)',
+          fontWeight: 800,
+          fontSize: '22px',
+          letterSpacing: '-0.4px',
+          lineHeight: 1.3,
+          marginBottom: '6px',
         }}>
-          <span style={{ fontSize: '32px' }}>{trackData.emoji}</span>
-          <div style={{ flex: 1 }}>
-            <div style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 700,
-              fontSize: '16px',
-              marginBottom: '2px',
-            }}>
-              Your Python {trackData.label}
-            </div>
-            <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{trackData.role}</div>
+          Become Job-Ready for{' '}
+          <span style={{ color: 'var(--cyan)' }}>{trackData.role}</span>{' '}
+          Roles Using Python in 4 Weeks
+        </h1>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
+          <div style={{
+            background: 'rgba(0,210,255,0.1)',
+            border: '1px solid rgba(0,210,255,0.25)',
+            borderRadius: '6px',
+            padding: '3px 10px',
+            fontSize: '12px',
+            fontWeight: 700,
+            color: 'var(--cyan)',
+            fontFamily: 'var(--font-display)',
+          }}>
+            {trackData.salaryRange}
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-            <div style={{
-              background: 'rgba(0,210,255,0.1)',
-              border: '1px solid rgba(0,210,255,0.25)',
-              borderRadius: '6px',
-              padding: '3px 8px',
-              fontSize: '12px',
-              fontWeight: 700,
-              color: 'var(--cyan)',
-              fontFamily: 'var(--font-display)',
-              boxShadow: '0 0 10px rgba(0, 210, 255, 0.05)'
-            }}>
-              {trackData.salaryRange}
-            </div>
-            <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-              {trackData.learnerCount.toLocaleString()} learners
-            </div>
-          </div>
+          <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+            {trackData.learnerCount.toLocaleString()} learners enrolled
+          </span>
         </div>
 
         {/* Roadmap label */}
@@ -254,8 +246,23 @@ export default function RoadmapScreen() {
           }}
           onClick={() => navigate('/task')}
         >
-          <div style={{ fontSize: '11px', color: 'var(--cyan)', fontWeight: 700, fontFamily: 'var(--font-display)', marginBottom: '8px' }}>
-            WEEK 1 VIDEO + TASK IS READY FOR YOU
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <div style={{ fontSize: '11px', color: 'var(--cyan)', fontWeight: 700, fontFamily: 'var(--font-display)', textTransform: 'uppercase' }}>
+              Try Before You Pay
+            </div>
+            <div style={{
+              background: 'rgba(132,204,22,0.15)',
+              border: '1px solid rgba(132,204,22,0.35)',
+              borderRadius: '4px',
+              padding: '1px 6px',
+              fontSize: '10px',
+              fontWeight: 800,
+              fontFamily: 'var(--font-display)',
+              color: 'var(--lime)',
+              letterSpacing: '0.5px',
+            }}>
+              FREE
+            </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{ flex: 1 }}>
@@ -298,20 +305,11 @@ export default function RoadmapScreen() {
         </div>
       </div>
 
-      {/* Sticky bar */}
+      {/* Sticky CTA bar */}
       <div className="sticky-bar slide-up">
-        <div style={{ maxWidth: '480px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
-          <div>
-            <div style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <span>🔒</span>
-              <span>Available until 5 March</span>
-            </div>
-            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '16px', color: 'var(--text-primary)' }}>
-              ₹299<span style={{ fontWeight: 400, fontSize: '12px', color: 'var(--text-muted)' }}>/course</span>
-            </div>
-          </div>
-          <button className="btn-primary" style={{ width: 'auto', flexShrink: 0, padding: '13px 20px' }} onClick={() => navigate('/task')}>
-            Try Your First Video + Task Free →
+        <div style={{ maxWidth: '480px', margin: '0 auto' }}>
+          <button className="btn-primary" style={{ padding: '15px 24px' }} onClick={() => navigate('/task')}>
+            Start My Python Career Path →
           </button>
         </div>
       </div>
