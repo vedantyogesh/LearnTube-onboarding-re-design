@@ -396,34 +396,54 @@ export default function GoalScreen() {
 
         {/* Stats strip */}
         <div
-          className="glass-panel"
           style={{
-            padding: "16px 20px",
+            marginTop: "40px",
+            padding: "24px 0",
             display: "flex",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "8px",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            background: "linear-gradient(180deg, rgba(5, 11, 20, 0) 0%, rgba(0, 210, 255, 0.02) 100%)",
+            borderTop: "1px solid rgba(255,255,255,0.05)",
+            borderBottom: "1px solid rgba(255,255,255,0.05)",
           }}
         >
           {[
-            ["10 Lakh+", "Active Users"],
-            ["4.8/5", "Course Rating"],
-            ["34 Lakh", "Highest Package"],
-          ].map(([val, label]) => (
-            <div key={label} style={{ textAlign: "center" }}>
+            { val: "10 Lakh+", label: "Learners" },
+            { val: "4.8/5", label: "Average Rating" },
+            { val: "34 Lakh", label: "Highest CTC" },
+          ].map((stat, i) => (
+            <div key={stat.label} style={{ textAlign: "center", flex: 1, position: "relative" }}>
               <div
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: "14px",
+                  fontWeight: 800,
+                  fontSize: "18px",
                   color: "var(--text-primary)",
+                  marginBottom: "4px",
+                  letterSpacing: "-0.5px",
                 }}
               >
-                {val}
+                {stat.val}
               </div>
-              <div style={{ fontSize: "11px", color: "var(--text-muted)" }}>
-                {label}
+              <div style={{ 
+                fontSize: "10px", 
+                color: "var(--text-muted)",
+                textTransform: "uppercase",
+                letterSpacing: "0.5px",
+                fontWeight: 600
+              }}>
+                {stat.label}
               </div>
+              {i < 2 && (
+                <div style={{
+                  position: "absolute",
+                  right: 0,
+                  top: "10%",
+                  bottom: "10%",
+                  width: "1px",
+                  background: "rgba(255,255,255,0.08)"
+                }} />
+              )}
             </div>
           ))}
         </div>

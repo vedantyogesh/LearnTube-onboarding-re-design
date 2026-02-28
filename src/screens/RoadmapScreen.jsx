@@ -235,73 +235,7 @@ export default function RoadmapScreen() {
           <AccordionWeek key={i} week={week} defaultOpen={i === 0} />
         ))}
 
-        {/* Task teaser */}
-        <div
-          className="glass-panel"
-          style={{
-            padding: '16px',
-            marginTop: '16px',
-            cursor: 'pointer',
-            transition: 'box-shadow 0.2s',
-          }}
-          onClick={() => navigate('/task')}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <div style={{ fontSize: '11px', color: 'var(--cyan)', fontWeight: 700, fontFamily: 'var(--font-display)', textTransform: 'uppercase' }}>
-              Try Before You Pay
-            </div>
-            <div style={{
-              background: 'rgba(132,204,22,0.15)',
-              border: '1px solid rgba(132,204,22,0.35)',
-              borderRadius: '4px',
-              padding: '1px 6px',
-              fontSize: '10px',
-              fontWeight: 800,
-              fontFamily: 'var(--font-display)',
-              color: 'var(--lime)',
-              letterSpacing: '0.5px',
-            }}>
-              FREE
-            </div>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '14px', marginBottom: '4px' }}>
-                {taskData.title}
-              </div>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-                background: currentBand === 'beginner' ? 'rgba(132,204,22,0.15)' : currentBand === 'intermediate' ? 'rgba(234,179,8,0.15)' : 'rgba(239,68,68,0.15)',
-                border: `1px solid ${currentBand === 'beginner' ? 'rgba(132,204,22,0.3)' : currentBand === 'intermediate' ? 'rgba(234,179,8,0.3)' : 'rgba(239,68,68,0.3)'}`,
-                borderRadius: '4px',
-                padding: '2px 7px',
-                fontSize: '11px',
-                fontWeight: 600,
-                fontFamily: 'var(--font-display)',
-                color: currentBand === 'beginner' ? 'var(--lime)' : currentBand === 'intermediate' ? '#EAB308' : '#EF4444',
-              }}>
-                {taskData.difficulty}
-              </div>
-            </div>
-            <div style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
-              background: 'var(--cyan)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-              boxShadow: '0 4px 12px var(--cyan-glow)'
-            }}>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M3 2L12 7L3 12V2Z" fill="var(--navy)"/>
-              </svg>
-            </div>
-          </div>
-        </div>
+
         </div>
       </div>
 
