@@ -79,11 +79,17 @@ export default function GoalScreen() {
   return (
     <div
       className="screen-enter"
-      style={{ minHeight: "100vh", paddingBottom: "90px" }}
+      style={{
+        height: "100dvh",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden"
+      }}
     >
       <Header />
 
-      <div style={{ maxWidth: "480px", margin: "0 auto", padding: "0 20px" }}>
+      <div style={{ flex: 1, overflowY: "auto", overflowX: "hidden" }}>
+        <div style={{ maxWidth: "480px", margin: "0 auto", padding: "0 20px 24px" }}>
         {/* Illustration */}
         <div
           style={{
@@ -420,6 +426,7 @@ export default function GoalScreen() {
               </div>
             </div>
           ))}
+        </div>
         </div>
       </div>
 

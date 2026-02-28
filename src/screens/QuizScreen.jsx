@@ -74,11 +74,20 @@ export default function QuizScreen() {
   }
 
   return (
-    <div className="screen-enter" style={{ minHeight: '100vh', paddingBottom: '90px' }}>
+    <div
+      className="screen-enter"
+      style={{
+        height: '100dvh',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden'
+      }}
+    >
       <Header showBack />
       <ProgressBar current={current + 1} total={questions.length} />
 
-      <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px' }}>
+      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+        <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px 24px' }}>
         {/* Illustration */}
         <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0 20px' }}>
           <svg width="180" height="150" viewBox="0 0 180 150" fill="none">
@@ -193,6 +202,7 @@ export default function QuizScreen() {
               </button>
             )
           })}
+        </div>
         </div>
       </div>
 

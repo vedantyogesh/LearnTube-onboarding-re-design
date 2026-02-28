@@ -35,7 +35,15 @@ export default function PricingScreen() {
   }
 
   return (
-    <div className="screen-enter" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
+    <div
+      className="screen-enter"
+      style={{
+        height: '100dvh',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden'
+      }}
+    >
       <Header showBack />
       <Stepper activeStep={5} />
 
@@ -61,7 +69,8 @@ export default function PricingScreen() {
         </div>
       )}
 
-      <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px' }}>
+      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+        <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px 24px' }}>
         <h1 style={{
           fontFamily: 'var(--font-display)',
           fontWeight: 800,
@@ -248,6 +257,7 @@ export default function PricingScreen() {
         <p style={{ textAlign: 'center', fontSize: '12px', color: 'var(--text-muted)', marginBottom: '8px' }}>
           Pricing valid until 5 March 2025
         </p>
+        </div>
       </div>
 
       {/* Sticky bar */}

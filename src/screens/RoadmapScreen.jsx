@@ -171,11 +171,20 @@ export default function RoadmapScreen() {
   }, [])
 
   return (
-    <div className="screen-enter" style={{ minHeight: '100vh', paddingBottom: '100px' }}>
+    <div
+      className="screen-enter"
+      style={{
+        height: '100dvh',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden'
+      }}
+    >
       <Header showBack />
       <Stepper activeStep={3} />
 
-      <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px' }}>
+      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+        <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px 24px' }}>
         {/* Track header */}
         <div className="glass-panel" style={{
           display: 'flex',
@@ -246,7 +255,7 @@ export default function RoadmapScreen() {
           onClick={() => navigate('/task')}
         >
           <div style={{ fontSize: '11px', color: 'var(--cyan)', fontWeight: 700, fontFamily: 'var(--font-display)', marginBottom: '8px' }}>
-            WEEK 1 TASK IS READY FOR YOU
+            WEEK 1 VIDEO + TASK IS READY FOR YOU
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{ flex: 1 }}>
@@ -286,6 +295,7 @@ export default function RoadmapScreen() {
             </div>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Sticky bar */}
@@ -301,7 +311,7 @@ export default function RoadmapScreen() {
             </div>
           </div>
           <button className="btn-primary" style={{ width: 'auto', flexShrink: 0, padding: '13px 20px' }} onClick={() => navigate('/task')}>
-            Try Your First Task Free →
+            Try Your First Video + Task Free →
           </button>
         </div>
       </div>

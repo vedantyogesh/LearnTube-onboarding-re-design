@@ -33,10 +33,19 @@ export default function LoadingScreen() {
   }, [navigate])
 
   return (
-    <div className="screen-enter" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div
+      className="screen-enter"
+      style={{
+        height: '100dvh',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden'
+      }}
+    >
       <Header />
 
-      <div style={{ flex: 1, maxWidth: '480px', margin: '0 auto', padding: '24px 20px', width: '100%' }}>
+      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+        <div style={{ maxWidth: '480px', margin: '0 auto', padding: '24px 20px', width: '100%' }}>
         {/* Spinner */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
           <div className="spinner" />
@@ -157,6 +166,7 @@ export default function LoadingScreen() {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </div>
 

@@ -52,11 +52,20 @@ export default function SkillLevelScreen() {
   }
 
   return (
-    <div className="screen-enter" style={{ minHeight: '100vh', paddingBottom: '90px' }}>
+    <div
+      className="screen-enter"
+      style={{
+        height: '100dvh',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden'
+      }}
+    >
       <Header showBack />
       <Stepper activeStep={1} />
 
-      <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px' }}>
+      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+        <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px 24px' }}>
         {/* Illustration */}
         <div style={{ display: 'flex', justifyContent: 'center', padding: '16px 0' }}>
           <svg width="200" height="160" viewBox="0 0 200 160" fill="none">
@@ -145,6 +154,7 @@ export default function SkillLevelScreen() {
               <RadioDot selected={selected === opt.id} />
             </button>
           ))}
+        </div>
         </div>
       </div>
 

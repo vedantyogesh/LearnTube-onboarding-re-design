@@ -101,7 +101,15 @@ export default function AnalysisScreen() {
   const rank = Math.max(1, Math.round(522 - (score / 100) * 450))
 
   return (
-    <div className="screen-enter" style={{ minHeight: '100vh', paddingBottom: '90px' }}>
+    <div
+      className="screen-enter"
+      style={{
+        height: '100dvh',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden'
+      }}
+    >
       <Header showBack />
 
       {/* Three-dot progress indicator */}
@@ -148,7 +156,8 @@ export default function AnalysisScreen() {
         ))}
       </div>
 
-      <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px' }}>
+      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+        <div style={{ maxWidth: '480px', margin: '0 auto', padding: '0 20px 24px' }}>
         <h1 style={{
           fontFamily: 'var(--font-display)',
           fontWeight: 800,
@@ -260,15 +269,31 @@ export default function AnalysisScreen() {
             Your Recommended Track
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-            <span style={{ color: 'var(--cyan)' }}>
-              {currentTrack === 'data' && <BarChart size={32} strokeWidth={1.5} />}
-              {currentTrack === 'ai' && <Bot size={32} strokeWidth={1.5} />}
-              {currentTrack === 'backend' && <Settings size={32} strokeWidth={1.5} />}
-            </span>
-            <div>
-              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '16px' }}>{trackData.label}</div>
-              <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{trackData.role}</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+              <span style={{ color: 'var(--cyan)' }}>
+                {currentTrack === 'data' && <BarChart size={32} strokeWidth={1.5} />}
+                {currentTrack === 'ai' && <Bot size={32} strokeWidth={1.5} />}
+                {currentTrack === 'backend' && <Settings size={32} strokeWidth={1.5} />}
+              </span>
+              <div>
+                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '16px' }}>{trackData.label}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{trackData.role}</div>
+              </div>
+              <div style={{
+                marginLeft: 'auto',
+                background: 'rgba(0,210,255,0.1)',
+                border: '1px solid rgba(0,210,255,0.25)',
+                borderRadius: '6px',
+                padding: '3px 8px',
+                fontSize: '12px',
+                fontWeight: 700,
+                color: 'var(--cyan)',
+                fontFamily: 'var(--font-display)',
+                flexShrink: 0,
+                boxShadow: '0 0 10px rgba(0, 210, 255, 0.05)'
+              }}>
+                {trackData.salaryRange}
+              </div>
             </div>
             <div style={{
               marginLeft: 'auto',
@@ -330,9 +355,6 @@ export default function AnalysisScreen() {
           </div>
         </div>
       </div>
-
-      {/* Footer padding */}
-      <div style={{ height: '24px' }} />
     </div>
   )
 }

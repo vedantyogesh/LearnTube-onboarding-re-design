@@ -2,6 +2,7 @@
   "beginner": {
     "title": "Analyse a Sales List",
     "description": "You have a list of daily sales figures. Write Python code to calculate the total revenue, find the best-performing day, and count how many days exceeded the average.",
+    "videoUrl": "https://www.youtube.com/embed/kqtD5dpn9C8",
     "difficulty": "Beginner",
     "starterCode": "# Sales data for the week\nsales = [12500, 8900, 15200, 6800, 19400, 11300, 9700]\n\n# TODO: Calculate total revenue\ntotal = 0  # replace with sum of sales\n\n# TODO: Find the highest sales day (index + value)\nbest_day = 0\nbest_value = 0\n\n# TODO: Calculate average daily sales\naverage = 0\n\n# TODO: Count days that beat the average\ndays_above_avg = 0\n\n# Print your results\nprint(f\"Total Revenue: ₹{total:,}\")\nprint(f\"Best Day: Day {best_day + 1} with ₹{best_value:,}\")\nprint(f\"Daily Average: ₹{average:,.0f}\")\nprint(f\"Days above average: {days_above_avg}\")\n",
     "hint": "Use sum() for total, enumerate() to find the best day index, and a list comprehension or loop to count days above average."
@@ -9,6 +10,7 @@
   "intermediate": {
     "title": "Parse & Aggregate JSON Sales Data",
     "description": "You have sales data as a JSON string. Parse it, group revenue by product category, find the top category, and calculate the average order value.",
+    "videoUrl": "https://www.youtube.com/embed/kqtD5dpn9C8",
     "difficulty": "Intermediate",
     "starterCode": "import json\n\n# Raw sales data (JSON string)\nraw_data = '''\n[\n  {\"order_id\": 1, \"product\": \"Python Course\", \"category\": \"Education\", \"amount\": 2999},\n  {\"order_id\": 2, \"product\": \"Data Kit\", \"category\": \"Tools\", \"amount\": 1499},\n  {\"order_id\": 3, \"product\": \"ML Bootcamp\", \"category\": \"Education\", \"amount\": 4999},\n  {\"order_id\": 4, \"product\": \"VS Code Plugin\", \"category\": \"Tools\", \"amount\": 799},\n  {\"order_id\": 5, \"product\": \"Backend Course\", \"category\": \"Education\", \"amount\": 3499},\n  {\"order_id\": 6, \"product\": \"Notebook Pro\", \"category\": \"Tools\", \"amount\": 1299},\n  {\"order_id\": 7, \"product\": \"AI Workshop\", \"category\": \"Education\", \"amount\": 5999}\n]\n'''\n\n# TODO: Parse the JSON data\norders = []\n\n# TODO: Group total revenue by category\ncategory_revenue = {}\n\n# TODO: Find the top category\ntop_category = \"\"\n\n# TODO: Calculate average order value across all orders\navg_order_value = 0\n\n# Print results\nprint(\"Revenue by Category:\")\nfor cat, rev in category_revenue.items():\n    print(f\"  {cat}: ₹{rev:,}\")\nprint(f\"\\nTop Category: {top_category}\")\nprint(f\"Average Order Value: ₹{avg_order_value:,.0f}\")\n",
     "hint": "Use json.loads() to parse, then loop through orders. A dict works well for grouping by category. sum() and len() help with the average."
@@ -16,6 +18,7 @@
   "advanced": {
     "title": "Build a Memoisation Decorator",
     "description": "Implement a custom @memoize decorator that caches function results to avoid recomputing expensive calls. Then use it to optimise a recursive Fibonacci function and demonstrate the speedup.",
+    "videoUrl": "https://www.youtube.com/embed/kqtD5dpn9C8",
     "difficulty": "Advanced",
     "starterCode": "import time\nfrom collections import OrderedDict\n\n# TODO: Implement the memoize decorator\n# Requirements:\n# - Cache results keyed by function arguments\n# - Support a max_size parameter (default: 128)\n# - Evict the oldest entry when cache is full (LRU-style)\n# - Track cache hits and misses\n\ndef memoize(max_size=128):\n    def decorator(func):\n        cache = OrderedDict()\n        hits = 0\n        misses = 0\n        \n        def wrapper(*args):\n            nonlocal hits, misses\n            # Your implementation here\n            pass\n        \n        wrapper.cache_info = lambda: {\"hits\": hits, \"misses\": misses, \"size\": len(cache)}\n        return wrapper\n    return decorator\n\n\n# Apply your decorator\n@memoize(max_size=64)\ndef fib(n):\n    if n < 2:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\n\n# Benchmark\nstart = time.perf_counter()\nresult = fib(35)\nelapsed = time.perf_counter() - start\n\nprint(f\"fib(35) = {result}\")\nprint(f\"Time: {elapsed*1000:.2f}ms\")\nprint(f\"Cache stats: {fib.cache_info()}\")\n\n# Verify correctness\nassert fib(0) == 0\nassert fib(1) == 1\nassert fib(10) == 55\nprint(\"All assertions passed!\")\n",
     "hint": "Use nonlocal for hits/misses. Check if args in cache before computing. Use cache.move_to_end() and cache.popitem(last=False) for LRU eviction."

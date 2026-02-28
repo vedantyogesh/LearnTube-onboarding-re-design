@@ -106,11 +106,20 @@ export default function TaskScreen() {
   const bandColor = currentBand === 'beginner' ? 'var(--cyan)' : currentBand === 'intermediate' ? '#EAB308' : '#EF4444'
 
   return (
-    <div className="screen-enter" style={{ minHeight: '100vh', paddingBottom: '90px' }}>
+    <div
+      className="screen-enter"
+      style={{
+        height: '100dvh',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden'
+      }}
+    >
       <Header showBack />
       <Stepper activeStep={4} />
 
-      <div style={{ maxWidth: '560px', margin: '0 auto', padding: '0 20px' }}>
+      <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
+        <div style={{ maxWidth: '560px', margin: '0 auto', padding: '0 20px 24px' }}>
         {/* Badge row */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', marginTop: '8px' }}>
           <div style={{
@@ -139,6 +148,33 @@ export default function TaskScreen() {
         }}>
           {taskData.title}
         </h1>
+
+        {taskData.videoUrl && (
+          <div style={{
+            position: 'relative',
+            paddingBottom: '56.25%',
+            height: 0,
+            overflow: 'hidden',
+            borderRadius: '12px',
+            marginBottom: '16px',
+            border: '1px solid var(--navy-border)'
+          }}>
+            <iframe
+              src={taskData.videoUrl}
+              title="Task Video"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                border: 0
+              }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        )}
 
         <p style={{
           color: 'var(--text-secondary)',
@@ -338,6 +374,7 @@ export default function TaskScreen() {
             </div>
           </div>
         )}
+        </div>
       </div>
 
       {/* Sticky bar */}
