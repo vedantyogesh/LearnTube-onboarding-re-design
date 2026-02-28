@@ -1,0 +1,416 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ────────────────────────────────────── */
+:root {
+  --navy: #050b14;
+  --navy-mid: #0a1628;
+  --navy-card: #0f1c36;
+  --navy-border: #1f3a5a;
+
+  --cyan: #00d2ff;
+  --cyan-hover: #33ddff;
+  --cyan-dark: #007b99;
+  --cyan-glow: rgba(0, 210, 255, 0.4);
+
+  --lime: #84cc16;
+  --lime-hover: #96e01a;
+  --lime-dark: #5c8a0a;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #a0b4cc;
+  --text-muted: #5c7a99;
+
+  --font-display: "Sora", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-code: "DM Mono", monospace;
+}
+
+/* ─── Reset & Base ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: radial-gradient(ellipse at 50% -20%, #0f1c36 0%, #050b14 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  border: none;
+  background: none;
+}
+
+/* ─── Screen Entry ─────────────────────────────────────── */
+@keyframes screenEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.screen-enter {
+  animation: screenEnter 350ms ease forwards;
+}
+
+/* ─── Buttons ──────────────────────────────────────────── */
+.btn-primary {
+  background: var(--cyan);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 24px;
+  width: 100%;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px var(--cyan-glow);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--cyan-hover);
+  box-shadow: 0 6px 20px var(--cyan-glow);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background: var(--navy-border);
+  color: var(--text-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  border: 1.5px solid var(--navy-border);
+  border-radius: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-ghost:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+/* ─── Option Buttons ───────────────────────────────────── */
+.option-btn {
+  background: rgba(15, 28, 54, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.option-btn:hover:not(.selected) {
+  border-color: rgba(0, 210, 255, 0.3);
+  background: rgba(15, 28, 54, 0.8);
+  transform: translateY(-1px);
+}
+
+.option-btn.selected {
+  border-color: var(--cyan);
+  background: rgba(0, 210, 255, 0.08);
+  box-shadow:
+    0 0 20px rgba(0, 210, 255, 0.15) inset,
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Input ────────────────────────────────────────────── */
+.input-field {
+  background: rgba(15, 32, 64, 0.8);
+  border: 1.5px solid var(--navy-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-field:focus {
+  border-color: var(--lime);
+}
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+/* ─── Cards ────────────────────────────────────────────── */
+.card {
+  background: rgba(15, 28, 54, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Header ───────────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(5, 11, 20, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  height: 56px;
+}
+
+/* ─── Sticky Bar ───────────────────────────────────────── */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: linear-gradient(
+    to top,
+    rgba(5, 11, 20, 1) 40%,
+    rgba(5, 11, 20, 0.8) 80%,
+    rgba(5, 11, 20, 0) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 24px 20px 32px;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.slide-up {
+  animation: slideUp 250ms ease forwards;
+}
+
+/* ─── Progress Bar (Quiz) ──────────────────────────────── */
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: var(--navy-border);
+  border-radius: 999px;
+  position: relative;
+  overflow: visible;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cyan-dark), var(--cyan));
+  box-shadow: 0 0 10px var(--cyan-glow);
+  transition: width 400ms ease-out;
+  position: relative;
+}
+
+.progress-star {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ─── Spinner ──────────────────────────────────────────── */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 200, 224, 0.15);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+/* ─── Marquee ──────────────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Stepper ──────────────────────────────────────────── */
+.stepper-line {
+  flex: 1;
+  height: 2px;
+  background: var(--navy-border);
+  transition: background 0.3s;
+}
+
+.stepper-line.done {
+  background: var(--lime);
+}
+
+/* ─── Accordion ────────────────────────────────────────── */
+.accordion-content {
+  overflow: hidden;
+  transition: height 200ms ease;
+}
+
+/* ─── Animations ───────────────────────────────────────── */
+@keyframes toastIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.toast {
+  animation: toastIn 300ms ease forwards;
+}
+
+@keyframes bannerIn {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.success-banner {
+  animation: bannerIn 300ms ease forwards;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--navy-border);
+  border-radius: 4px;
+}
+
+/* ─── Utility ──────────────────────────────────────────── */
+.text-cyan {
+  color: var(--cyan);
+}
+.text-lime {
+  color: var(--lime);
+}
+.font-display {
+  font-family: var(--font-display);
+}
+.font-code {
+  font-family: var(--font-code);
+}

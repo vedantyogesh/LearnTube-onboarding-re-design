@@ -1,0 +1,188 @@
+{
+  "data": {
+    "label": "Data Track",
+    "role": "Data Analyst / BI Analyst",
+    "salaryRange": "₹6–18 LPA",
+    "emoji": "📊",
+    "learnerCount": 2847,
+    "description": "Master Python for data analysis, business intelligence, and reporting. Build dashboards, automate reports, and uncover insights that drive decisions.",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Python Foundations for Data",
+        "build": "Automate a CSV report with 100+ rows",
+        "tools": ["Python 3.11", "VS Code", "pandas"],
+        "modules": [
+          "Python data types & structures",
+          "File I/O & CSV handling",
+          "List comprehensions & generators",
+          "Functions & scope",
+          "Error handling basics"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Data Wrangling with pandas",
+        "build": "Clean a real-world messy dataset with 1,000+ rows",
+        "tools": ["pandas", "NumPy", "Jupyter"],
+        "modules": [
+          "DataFrames & Series fundamentals",
+          "Filtering, groupby, and aggregation",
+          "Handling missing data & outliers",
+          "Merging and joining datasets",
+          "Date/time operations"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Data Visualisation & Insights",
+        "build": "Interactive sales dashboard with 5 chart types",
+        "tools": ["matplotlib", "seaborn", "Plotly"],
+        "modules": [
+          "Matplotlib fundamentals",
+          "Statistical plots with seaborn",
+          "Interactive charts with Plotly",
+          "Dashboard layout & storytelling",
+          "Exporting & sharing visuals"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "SQL + Python for Business Analytics",
+        "build": "End-to-end revenue analysis report",
+        "tools": ["SQLite", "pandas", "openpyxl"],
+        "modules": [
+          "SQL with Python (sqlite3)",
+          "Advanced GROUP BY & window functions",
+          "Automating Excel reports with openpyxl",
+          "Building a data pipeline",
+          "Capstone: Analyst portfolio project"
+        ]
+      }
+    ]
+  },
+  "ai": {
+    "label": "AI & ML Track",
+    "role": "ML Engineer / AI Developer",
+    "salaryRange": "₹10–28 LPA",
+    "emoji": "🤖",
+    "learnerCount": 1923,
+    "description": "Build machine learning models, work with neural networks, and develop AI-powered applications. From regression to transformers.",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Python for Machine Learning",
+        "build": "Predict house prices with linear regression",
+        "tools": ["Python 3.11", "NumPy", "pandas"],
+        "modules": [
+          "NumPy arrays & matrix operations",
+          "Data preprocessing & normalisation",
+          "Train/test split fundamentals",
+          "Linear algebra for ML",
+          "Evaluation metrics"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Core ML Algorithms",
+        "build": "Email spam classifier with 95%+ accuracy",
+        "tools": ["scikit-learn", "Jupyter", "matplotlib"],
+        "modules": [
+          "Classification algorithms",
+          "Decision trees & random forests",
+          "Feature engineering",
+          "Cross-validation & overfitting",
+          "Hyperparameter tuning"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Neural Networks & Deep Learning",
+        "build": "Image classifier trained on 10,000 images",
+        "tools": ["TensorFlow", "Keras", "Colab GPU"],
+        "modules": [
+          "Neural network architecture",
+          "Backpropagation & optimisers",
+          "CNNs for image recognition",
+          "Transfer learning",
+          "Model deployment basics"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "LLMs & Generative AI",
+        "build": "AI assistant using OpenAI API + RAG",
+        "tools": ["OpenAI API", "LangChain", "ChromaDB"],
+        "modules": [
+          "Prompt engineering patterns",
+          "Embeddings & vector databases",
+          "Retrieval-Augmented Generation (RAG)",
+          "Fine-tuning basics",
+          "Capstone: AI product prototype"
+        ]
+      }
+    ]
+  },
+  "backend": {
+    "label": "Backend Track",
+    "role": "Backend Developer / SDE",
+    "salaryRange": "₹8–22 LPA",
+    "emoji": "⚙️",
+    "learnerCount": 2104,
+    "description": "Build scalable APIs, work with databases, and deploy production systems. From REST to async microservices.",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Python for Web Development",
+        "build": "REST API with 5 endpoints and full CRUD",
+        "tools": ["FastAPI", "VS Code", "Postman"],
+        "modules": [
+          "FastAPI fundamentals",
+          "HTTP methods & status codes",
+          "Pydantic models & validation",
+          "Path & query parameters",
+          "Request/response schemas"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Databases & ORM",
+        "build": "User authentication system with JWT",
+        "tools": ["PostgreSQL", "SQLAlchemy", "Alembic"],
+        "modules": [
+          "Relational database design",
+          "SQLAlchemy ORM patterns",
+          "Migrations with Alembic",
+          "JWT authentication",
+          "Password hashing & security"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Async Programming & Caching",
+        "build": "High-performance async API with Redis cache",
+        "tools": ["asyncio", "Redis", "Celery"],
+        "modules": [
+          "async/await fundamentals",
+          "Async database operations",
+          "Redis caching strategies",
+          "Background tasks with Celery",
+          "Rate limiting & throttling"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "Deployment & System Design",
+        "build": "Dockerised microservice deployed on cloud",
+        "tools": ["Docker", "GitHub Actions", "AWS EC2"],
+        "modules": [
+          "Docker & containerisation",
+          "CI/CD with GitHub Actions",
+          "Environment & secrets management",
+          "Monitoring & logging",
+          "Capstone: Production API project"
+        ]
+      }
+    ]
+  }
+}

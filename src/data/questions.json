@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "What is the output of this Python code?\n\nmy_list = [1, 2, 3, 4, 5]\nresult = [x**2 for x in my_list if x % 2 == 0]\nprint(result)",
+    "topic": "List Comprehensions",
+    "options": [
+      "[4, 16]",
+      "[1, 4, 9, 16, 25]",
+      "[2, 4]",
+      "[4, 16, 25]"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 2,
+    "question": "You need to read only the first 3 lines of a large CSV file without loading the entire file into memory. Which approach is correct?",
+    "topic": "File Handling",
+    "options": [
+      "open('data.csv').read().split('\\n')[:3]",
+      "with open('data.csv') as f:\\n    lines = [next(f) for _ in range(3)]",
+      "f = open('data.csv')\\n    return f.readline(3)",
+      "import csv\\n    list(csv.reader('data.csv'))[:3]"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "question": "A Python dictionary has this data:\n\nscores = {'Alice': 95, 'Bob': 82, 'Charlie': 78}\n\nWhat is the most Pythonic way to get the student with the highest score?",
+    "topic": "Dictionaries",
+    "options": [
+      "max(scores, key=lambda k: scores[k])",
+      "sorted(scores.values())[-1]",
+      "max(scores.values())",
+      "scores.max()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 4,
+    "question": "Given a pandas DataFrame with a column 'salary' containing numeric values, some of which are NaN, which code correctly fills NaN with the column mean?",
+    "topic": "Pandas",
+    "options": [
+      "df['salary'].replace(NaN, df['salary'].mean())",
+      "df['salary'].fillna(df['salary'].mean(), inplace=True)",
+      "df['salary'] = df['salary'].fill(mean())",
+      "df.salary.nan = df.salary.average()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 5,
+    "question": "What is the output of this code?\n\ndef outer(x):\n    def inner(y):\n        return x + y\n    return inner\n\nadd5 = outer(5)\nprint(add5(3), add5(7))",
+    "topic": "Functions & Closures",
+    "options": [
+      "8 12",
+      "3 7",
+      "5 5",
+      "Error: x is not defined in inner"
+    ],
+    "correct": 0
+  }
+]
